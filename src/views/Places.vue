@@ -25,7 +25,9 @@ export default {
       return sourceData.sections.find((section) => section.slug === this.slug);
     },
     location() {
-      return this.section.locations.find((location) => location.slug === this.locationSlug);
+      return this.section.locations.find(
+        (location) => location.slug === this.locationSlug
+      );
     },
   },
 };
