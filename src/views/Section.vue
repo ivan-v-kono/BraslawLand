@@ -7,9 +7,6 @@
         <p>{{ section.description }}</p>
       </div>
     </section>
-    <div id="router-link-home">
-      <router-link to="/"> &#8592; Back</router-link>
-    </div>
     <section class="locations">
       <h2>Top places in {{ section.name }}</h2>
       <div class="cards">
@@ -26,17 +23,20 @@
       </div>
       <router-view />
     </section>
+    <GoBack />
   </div>
 </template>
 
 <script>
 import sourceData from "@/data.json";
-import locationCard from "@/components/locationCard";
+import GoBack from "@/components/GoBack";
+import LocationCard from "@/components/LocationCard";
 
 export default {
   name: "SectionView",
   components: {
-    locationCard,
+    LocationCard,
+    GoBack,
   },
   props: {
     slug: {

@@ -8,7 +8,7 @@
       :key="section.id"
       :to="{
         name: 'sections',
-        params: { slug: section.slug }
+        params: { slug: section.slug },
       }"
     >
       {{ section.name }}

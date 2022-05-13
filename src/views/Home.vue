@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>The best places of Braslaw Land*****</h1>
+    <h1>The best places of Braslaw Land</h1>
     <div class="sections">
       <router-link
         v-for="section in sections"
