@@ -1,5 +1,5 @@
 <template>
-  <section id="locations">
+  <section id="small-foto+desc-bottom" class="fade-nested" :key="$route.path">
     <h1>{{ location.name }}</h1>
     <img :src="`/images/${location.image}`" alt="location.name" />
     <p>{{ location.description }}</p>
@@ -33,4 +33,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+/*---- fade-nested transition ----*/
+.fade-nested {
+  transition: opacity 1s ease;
+}
+.fade-enter-active .fade-nested {
+  opacity: 0;
+}
+</style>

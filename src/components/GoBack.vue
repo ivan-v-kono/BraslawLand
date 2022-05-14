@@ -1,4 +1,5 @@
 <template>
+  <!--TODO: сделать возврат не на предыдущую, а на уровень выше-->
   <span class="go-back">
     <button @click="$router.back()">&#8592; Back</button>
   </span>

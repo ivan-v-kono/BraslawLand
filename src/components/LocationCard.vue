@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" id="card">
     <img :src="`/images/${location.image}`" alt="location.name" />
     <span class="card__text">
       {{ location.name }}

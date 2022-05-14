@@ -1,11 +1,12 @@
 <template>
+  <!--TODO: del IDs & rename classes-->
   <Navigation />
   <div class="container">
+    <!--<router-view />-->
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
-        <!--name="moveUp"-->
-        <!--name="slide" mode="out-in"-->
-        <component :is="Component" :key="$route.path"></component>
+        <component :is="Component" />
+        <!--:key="route.path" -->
       </transition>
     </router-view>
   </div>
@@ -23,7 +24,7 @@ export default {
 
 <style>
 /*---- slide transition ----*/
-.slide-enter-active,
+/*.slide-enter-active,
 .slide-leave-active {
   transition: opacity 0.51s, transform 0.51s;
 }
@@ -31,10 +32,10 @@ export default {
 .slide-leave-to {
   opacity: 0;
   transform: translateX(-30%);
-}
+}*/
 
 /*---- moveUp transition ----*/
-.moveUp-enter-active {
+/*.moveUp-enter-active {
   animation: fadeIn 1s ease-in;
 }
 @keyframes fadeIn {
@@ -58,15 +59,30 @@ export default {
   100% {
     transform: translateY(-400px);
   }
-}
+}*/
 
 /*---- fade transition ----*/
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s;
+  transition: opacity 1s;
 }
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+  opacity: 1;
 }
+
+/*---- slide-fade transition ----*/
+/*.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}*/
 </style>

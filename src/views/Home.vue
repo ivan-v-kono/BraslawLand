@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" id="start-fotos+titles">
     <h1>The best places of Braslaw Land</h1>
     <div class="sections">
       <router-link

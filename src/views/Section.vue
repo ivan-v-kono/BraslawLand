@@ -1,13 +1,13 @@
 <template>
-  <div class="wrapper">
-    <section id="section" v-if="section" class="section">
+  <div class="wrapper" id="wrrrrr">
+    <section id="big-foto+decrip" v-if="section" class="section">
       <h1>{{ section.name }}</h1>
       <div class="section-details">
         <img :src="`/images/${section.image}`" :alt="section.name" />
         <p>{{ section.description }}</p>
       </div>
     </section>
-    <section class="locations">
+    <section class="locations" id="row-small-fotos">
       <h2>Top places in {{ section.name }}</h2>
       <div class="cards">
         <router-link
@@ -21,7 +21,21 @@
           <locationCard :location="location" />
         </router-link>
       </div>
-      <router-view />
+      <!--<router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          &lt;!&ndash;name="fade" mode="out-in"&ndash;&gt;
+          &lt;!&ndash;name="moveUp"&ndash;&gt;
+          &lt;!&ndash;name="slide" mode="out-in"&ndash;&gt;
+          <component :is="Component" :key="$route.path"></component>
+          &lt;!&ndash;&ndash;&gt;
+        </transition>
+      </router-view>-->
+      <!--<router-view />-->
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </section>
     <GoBack />
   </div>
@@ -52,4 +66,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+/*---- fade transition ----*/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
