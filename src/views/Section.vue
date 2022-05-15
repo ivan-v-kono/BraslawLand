@@ -21,15 +21,6 @@
           <locationCard :location="location" />
         </router-link>
       </div>
-      <!--<router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
-          &lt;!&ndash;name="fade" mode="out-in"&ndash;&gt;
-          &lt;!&ndash;name="moveUp"&ndash;&gt;
-          &lt;!&ndash;name="slide" mode="out-in"&ndash;&gt;
-          <component :is="Component" :key="$route.path"></component>
-          &lt;!&ndash;&ndash;&gt;
-        </transition>
-      </router-view>-->
       <!--<router-view />-->
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">

@@ -1,7 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import sourceData from "@/data.json";
 
 const routes = [
+  {
+    path: "/notFound",
+    name: "NotFound",
+    component: () => import("@/views/NotFound.vue"),
+  },
   {
     path: "/",
     name: "home",
@@ -17,14 +23,37 @@ const routes = [
     name: "sections",
     component: () => import("@/views/Section"),
     props: (route) => ({ ...route.params }),
+    beforeEnter(to) {
+      const exist = sourceData.sections.find(
+        (section) => section.slug === to.params.slug
+      );
+      if (!exist) return { name: "NotFound" };
+    },
     children: [
       {
         path: ":locationSlug",
         name: "location.show",
         component: () => import("@/views/Places"),
-        props: (route) => ({ ...route.params }),
+        props: (route) => ({
+          ...route.params,
+        }),
+        beforeEnter(to) {
+          const exist = sourceData.sections.find(
+            (section) =>
+              section.slug === to.params.slug &&
+              section.locations.find(
+                (location) => location.slug === to.params.locationSlug
+              )
+          );
+          if (!exist) return { name: "NotFound" };
+        },
       },
     ],
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () => import("@/views/NotFound.vue"),
   },
 ];
 

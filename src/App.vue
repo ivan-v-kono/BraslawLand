@@ -2,13 +2,13 @@
   <!--TODO: del IDs & rename classes-->
   <Navigation />
   <div class="container">
-    <!--<router-view />-->
-    <router-view v-slot="{ Component }">
+    <router-view />
+    <!--<router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
-        <!--:key="route.path" -->
+        &lt;!&ndash;:key="route.path" &ndash;&gt;
       </transition>
-    </router-view>
+    </router-view>-->
   </div>
 </template>
 

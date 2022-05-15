@@ -1,7 +1,12 @@
 <template>
   <!--TODO: сделать возврат не на предыдущую, а на уровень выше-->
   <span class="go-back">
-    <button @click="$router.back()">&#8592; Back</button>
+    <button
+      @click="$router.back()"
+      style="border-color: rgba(255, 255, 255, 0.7)"
+    >
+      &#8592; Back
+    </button>
   </span>
 </template>
 
