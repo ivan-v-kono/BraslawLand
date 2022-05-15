@@ -1,5 +1,6 @@
 <template>
-  <section id="small-foto+desc-bottom" class="fade-nested" :key="$route.path">
+  <section :id="locationSlug" class="fade-nested" :key="$route.path">
+    <!--small-foto+desc-bottom-->
     <h1>{{ location.name }}</h1>
     <img :src="`/images/${location.image}`" alt="location.name" />
     <p>{{ location.description }}</p>

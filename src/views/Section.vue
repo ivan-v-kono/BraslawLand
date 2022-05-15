@@ -16,6 +16,7 @@
           :to="{
             name: 'location.show',
             params: { locationSlug: location.slug },
+            hash: `${'#' + location.slug}`,
           }"
         >
           <locationCard :location="location" />
