@@ -27,7 +27,13 @@ const routes = [
       const exist = sourceData.sections.find(
         (section) => section.slug === to.params.slug
       );
-      if (!exist) return { name: "NotFound" };
+      if (!exist)
+        return {
+          name: "NotFound",
+          params: { pathMatch: to.path.split("/").slice(1) },
+          query: to.query,
+          hash: to.hash,
+        };
     },
     children: [
       {
@@ -45,7 +51,13 @@ const routes = [
                 (location) => location.slug === to.params.locationSlug
               )
           );
-          if (!exist) return { name: "NotFound" };
+          if (!exist)
+            return {
+              name: "NotFound",
+              params: { pathMatch: to.path.split("/").slice(1) },
+              query: to.query,
+              hash: to.hash,
+            };
         },
       },
     ],
